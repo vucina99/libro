@@ -1,0 +1,32 @@
+[
+	{
+		"naziv" : "radi",
+		"id" : 1
+	},
+	{
+		"naziv" : "vuce",
+		"id" : 2
+	},
+	{
+		"naziv" : "radi2",
+		"id" : 1
+	},
+	{
+		"naziv" : "vuce3",
+		"id" : 2
+	},	{
+		"naziv" : "radi4",
+		"id" : 1
+	},
+	{
+		"naziv" : "vuce5",
+		"id" : 2
+	},	{
+		"naziv" : "radi6",
+		"id" : 1
+	},
+	{
+		"naziv" : "vuce7",
+		"id" : 2
+	}
+];
