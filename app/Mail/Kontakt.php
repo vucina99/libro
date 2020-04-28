@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class porukazamalo extends Mailable
+class Kontakt extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +16,10 @@ class porukazamalo extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $sve;
+    public function __construct($sve)
     {
-        //
+       $this->sve = $sve;
     }
 
     /**
@@ -28,6 +29,6 @@ class porukazamalo extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('LIBRO SHOP PITANJE')->view('pitanje');
     }
 }

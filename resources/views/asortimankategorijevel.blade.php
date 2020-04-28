@@ -90,7 +90,7 @@
 										</select>
 									</div><br>
 
-									<input type="text" value="1" hidden="true" id="ovoje">
+									<input type="text" value="2" hidden="true" id="ovoje">
 									<input type="text" value="{{$proizvod->sifra}}" hidden="true" id="sifra">	
 								</form>
 

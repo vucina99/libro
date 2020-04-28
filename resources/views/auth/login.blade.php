@@ -19,15 +19,15 @@
                 </div>
 
             @endif
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" onsubmit="return provera();">
                         @csrf
-
+                         <div class="text-center text-danger1 font-weight-bold" id="svapolja"></div><br>
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Adresa') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" oninvalid="this.setCustomValidity('Morate uneti validan e-mail')" oninput="setCustomValidity('')" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <span class=" greska" id="emails"></span>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -40,8 +40,8 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Lozinka') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" oninvalid="this.setCustomValidity('Morate uneti lozinku sa 8 karaktera ')" oninput="setCustomValidity('')">
+                                <span class=" greska" id="passwords"></span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -78,3 +78,6 @@
     </div>
 </div></main>
 @endsection
+<script>
+    
+</script>

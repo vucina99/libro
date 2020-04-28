@@ -66,3 +66,5 @@ Route::get('/prikazproizvodakategorije/maloprodaja/{id}' , 'LibroController@prik
 Route::get('/prikazproizvodakategorije/veleprodaja/{id}' , 'LibroController@prikazkatveleprodaja');
 Route::get('/pretragamaloprodaje' , 'LibroController@pretragamaloprodaje');
 Route::get('/pretragaveleprodaje' , 'LibroController@pretragaveleprodaje');
+Route::get('/kontakt' , 'LibroController@kontakt');
+Route::post('/slanjeporuke' , 'LibroController@slanjeporuke');

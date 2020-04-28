@@ -31,7 +31,11 @@ main{
 	z-index: 9999;
 	background: url('../img/animacija.gif') 50% 50% no-repeat rgb(249,249,249);
 }
-
+.greska{
+	font-size: 13px;
+	color: #cc0000;
+	font-weight: bold;
+}
 .carousel-caption {
 	top: 0;
 	bottom: auto;

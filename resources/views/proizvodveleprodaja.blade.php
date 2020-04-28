@@ -48,7 +48,9 @@
 			<h1> <span class=""> {{$proizvod->podkategorije->naziv}} </span> - <span class="font-italic"> {{$proizvod->naziv}} </span>  </h1> <br> 
 
 			<div class="text-center text-danger1 mrezeneke">
-				<a href="" ><i class="fab fa-facebook-square"></i></a> &nbsp; <a href="" ><i class="fab fa-twitter"></i></a>
+				<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:8000/veleprodaja/proizvod/{{$proizvod->id}} ' , 'Facebook share'); return false;"><i class="fab fa-facebook-square"></i></a> &nbsp; 
+
+				<a href="https://twitter.com/share?url=" onclick="window.open('https://twitter.com/share?url=http://127.0.0.1:8000/veleprodaja/proizvod/{{$proizvod->id}}&text=LIBRO SHOP - ' , 'Twitter share'); return false;" ><i class="fab fa-twitter"></i></a>
 			</div>
 			<br>
 			<p class="text-dark font-italic pl-2 pr-2 ">

@@ -53,35 +53,7 @@
 							{{ Auth::user()->name }} <span class="caret"></span>
 						</a>
 						
-						<script
-						src="https://code.jquery.com/jquery-3.4.1.js"
-						integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-						crossorigin="anonymous"></script>
-						<script>
-
-							$(document).ready(function(){
-								var product = JSON.parse(localStorage.getItem("products"));
-
-								product.forEach(moz => {
-									if(moz.ovoje == 2){
-										
-										removeFromCart(moz.indetifikator);
-
-										
-
-									}
-								});
-								
-								function removeFromCart(indetifikator) {
-									let proizvodi = productsInCart();
-									let filtered = proizvodi.filter(p => p.indetifikator != indetifikator);
-									
-									localStorage.setItem("products", JSON.stringify(filtered));
-								}
-								console.log(product);
-							});
-
-						</script>
+						
 						@endif
 						@if(Auth::guard("legal")->check())
 						<a id="navbarDropdown" class="nav-link text-uppercase dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -176,6 +148,6 @@ crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script  src="../../js/main.js"></script>
-<script  src="../../js/cart.js"></script>
+
 </body>
 </html>

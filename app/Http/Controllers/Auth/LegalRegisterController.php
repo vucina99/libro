@@ -31,17 +31,17 @@ class LegalRegisterController extends Controller
          
         $this->validate($request , [
 
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:100|min:2',
             'email' => 'required|string|email|max:255|unique:radnis',
-            'city' => 'required|string|min:2|max:35',
-            'street' => 'required|string|min:2|max:35',
+            'city' => 'required|string|min:2|max:50',
+            'street' => 'required|string|min:2|max:50',
             'object' => 'required|string|max:6',
-            'phone' => 'required|numeric|min:8|unique:radnis|digits_between:9,10',
+            'phone' => 'required|numeric|unique:radnis|digits_between:9,10',
             'number' => 'required|numeric|digits_between:1,15',
             'pib' => 'required|numeric|digits:9',
             'maticni_broj' => 'required|numeric|digits:8',
             'password' => 'required|string|min:8|confirmed',
-            'fix' => 'numeric|digits_between:3,20',
+            'fix' => 'numeric|digits_between:4,20',
 
 
 

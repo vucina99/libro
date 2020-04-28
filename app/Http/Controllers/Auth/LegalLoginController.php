@@ -20,7 +20,7 @@ class LegalLoginController extends Controller
     public function login(Request $request){
     	$this->validate($request , [
     		'email' => 'required|email',
-    		'password' => 'required|min:6'
+    		'password' => 'required|min:8'
     	]);
 
     	if(Auth::guard("legal")->attempt(['email' => $request->email , 'password' => $request->password ], $request->remember)){
@@ -28,7 +28,7 @@ class LegalLoginController extends Controller
     		return redirect()->intended(route('pocetna'));
 
     	}
-    	return back();
+    	return back()->with("nemadalje" , "POGREŠAN E-MAIL ILI LOZINKA, PROBAJTE PONOVO");
 
 
     }

@@ -176,7 +176,13 @@
 					<li class="ph"> <i class="fas fa-envelope"></i> libro.prodaja@gmail.com </li>
 					<li class="pb-2 "> <i class="fas fa-envelope"></i> libro.reklamacije@gmail.com  </li>
 					
-					<li> <a href=""  class="text-decoration-none"> <i class="fab fa-facebook-square fa-2x"></i> </a> &nbsp; <a href=""  class="text-decoration-none"> <i class="fab fa-instagram fa-2x"></i>  </a> </li>
+					<li> 
+						<a href=""  class="text-decoration-none"> <i class="fab fa-facebook-square fa-2x"></i> </a> 
+						&nbsp; 
+						<a href=""  class="text-decoration-none"> <i class="fab fa-instagram fa-2x"></i>  </a> 
+						&nbsp; 
+						<a href="" class="text-decoration-none"><i class="fab fa-twitter fa-2x"></i></a>
+					</li>
 				</ul>				
 			</div>
 		</div> 

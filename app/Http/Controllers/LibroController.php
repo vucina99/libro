@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\Proizvodimalo as ProizvodimaloResource;
 use App\Http\Resources\Proizvodivel as ProizvodivelResource;
 use App\Kategorije;
+use App\Mail\Kontakt;
 use App\Mail\Narudzbina;
 use App\Mail\NarudzbinaVele;
 use App\Proizvodimalo;
@@ -32,6 +33,9 @@ public function prikaz()
 
 function json(){
     return  ProizvodimaloResource::collection(Proizvodimalo::all());
+}
+function kontakt(){
+    return view("contant");
 }
 function dalje(){
     return true;
@@ -150,5 +154,28 @@ public function pretragaveleprodaje(Request $request){
     $kategorijevel = Kategorije::all();
     return view("asortimanvel" , compact("proizvodi","kategorijevel"));
 }
+
+public function slanjeporuke(Request $request){
+    $this->validate($request,[
+        'name' => 'required|max:40|min:2',
+        'email' => 'required|email|max:255',
+        'question' => 'required|max:500|min:2',
+    ]);
+    $sve = [
+        'name' => $request->name,
+        'email' => $request->email,
+        'question' => $request->question
+    ];
+    Mail::to("vukzdravkovic69@gmail.com")->send(new Kontakt($sve));
+
+    return back()->with("kontak" , "Uspešno ste poslali poruku");
+}
+
+
+
+
+
+
+
 
 }
