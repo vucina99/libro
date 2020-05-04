@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Libro</title>
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
+	<title>Libro NS</title>
+	<meta name="robots" content="noindex">
+
 	<link rel="shortcut icon" href="../../img/logo.ico" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -90,11 +91,10 @@
 			<div class="col-lg-3 col-md-6 col-sm-12 text-center">
 				<img src="../../img/logo.jpg" alt="logo" class="img-fluid">
 				<ul>
-					<li><a href="" class="text-decoration-none">PRAVNA LICA <i class="fas fa-sign-in-alt"></i> </a></li>
-					<li><a href="" class="text-decoration-none">FIZIČKA LICA <i class="fas fa-sign-in-alt"></i> </a></li>
-					<li><a href="" class="text-decoration-none"> MALOPRODAJA </a> </li>
-					<li><a href="" class="text-decoration-none"> VELEPRODAJA</a></li>
-					<li><a href="" class="text-decoration-none"> KONTAKT </a></li>
+					<li><a href="/legal/register" class="text-decoration-none">PRAVNA LICA <i class="fas fa-sign-in-alt"></i> </a></li>
+					<li><a href="/register" class="text-decoration-none">FIZIČKA LICA <i class="fas fa-sign-in-alt"></i> </a></li>
+					<li><a href="/kontakt" class="text-decoration-none"> KONTAKT </a></li>
+					<li><a href="/korpa" class="text-decoration-none unutar">  </a> </li>
 				</ul>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-12 text-center">

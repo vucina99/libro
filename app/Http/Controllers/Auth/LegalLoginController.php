@@ -5,7 +5,7 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
-
+use App\Katalog;
 class LegalLoginController extends Controller
 {
 	public function __construct(){
@@ -15,7 +15,8 @@ class LegalLoginController extends Controller
 
 
     public function showLoginForm(){
-    	return view("auth/legalLogin");
+        $katalozi = Katalog::all();
+    	return view("auth/legalLogin", compact("katalozi"));
     }
     public function login(Request $request){
     	$this->validate($request , [

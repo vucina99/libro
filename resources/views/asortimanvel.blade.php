@@ -1,11 +1,15 @@
 @extends("content")
-
+@section("seo")
+	<title>Libro Shop NS - Asortiman Veleprodaje</title>
+	<meta name="robots" content="noindex">
+	
+@endsection
 @section("content")
 <header>
 	<div class="container">
 		<div class="row border-siva">
 			<div class="col-lg-4 col-md-12 col-sm-12  spustaj  text-center ">
-
+				
 				<div id="mySidenav" class="sidenav bg-dark vise" >
 					<div class="container">
 						<a href="javascript:void(0)" class="closebtn" id="close" >&times;</a>
@@ -16,12 +20,11 @@
 									{{$kategorija->naziv}}
 								</button>
 								<div class="dropdown-menu dropdown-menu-center w-200">
-									<a class="dropdown-item pr-4" href="/prikazproizvodakategorije/veleprodaja/{{$kategorija->id}}">SVI PROIZVODI KATEGORIJE</a>
+									<a class="dropdown-item pr-4" href="{{$kategorija->pathvel()}}">SVI PROIZVODI KATEGORIJE</a>
 									@foreach($kategorija->podkategorijes as $podkategorija)
-									<a class="dropdown-item pr-4" href="/prikazproizvoda/veleprodaja/{{$podkategorija->id}}">{{$podkategorija->naziv}}</a>
-
+									<a class="dropdown-item pr-4" href="{{$podkategorija->pathvel()}}">{{$podkategorija->naziv}}</a>
+									
 									@endforeach
-
 								</div>
 							</div></li><br>@endforeach 
 							<br>
@@ -30,7 +33,7 @@
 				</div>
 
 
-				<span  id="dodatni" class="text-dark"  >&#9776; PROIZVODI</span>
+				<span  id="dodatni" class="text-dark" >&#9776; PROIZVODI</span>
 			</div>
 			<div class="col-lg-8 col-md-12 col-sm-12 spustaj1"> 
 				<form action="/pretragaveleprodaje" method="GET">
@@ -56,7 +59,7 @@
 					<div class="container-fluid">
 						<div class="row border-siva1">
 							<div class="col-3 text-center">
-								<a href="/veleprodaja/proizvod/{{$proizvod->id}}" >
+								<a href="{{$proizvod->path()}}" >
 									<button class="btn btn-outline-danger btn-sm"><i class="fas fa-align-left "></i></button>
 
 								</a>
@@ -108,7 +111,7 @@
 							</div>
 						</div> 
 					</div>
-					<a href="/veleprodaja/proizvod/{{$proizvod->id}}" class="text-decoration-none">
+					<a href="{{$proizvod->path()}}" class="text-decoration-none">
 						<img class="card-img-top" src="{{asset('/storage/images/'. $proizvod->slika )}}" alt="Card image cap img-fluid">
 						<div class="card-body">
 							<h5 class="card-title text-danger1">{{$proizvod->naziv}}</h5>

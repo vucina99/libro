@@ -54,17 +54,33 @@ Route::post('/dodavanjemaloprodaje' , 'AdminController@dodavanjemaloprodaje');
 Route::delete('/brisanjeproizvodamalo/{id}' , 'AdminController@brisanjeproizvodamalo');
 Route::post('/dodavanjeveleprodaje' , 'AdminController@dodavanjeveleprodaje');
 Route::delete('/brisanjeproizvodaveliko/{id}' , 'AdminController@brisanjeproizvodaveliko');
-Route::get('/prikazproizvoda/veleprodaja/{id}' , 'LibroController@prikazveleprodaja')->middleware("vratifizicko");
-Route::get('/prikazproizvoda/maloprodaja/{id}' , 'LibroController@prikazmaloprodaja');
 
-Route::get('/veleprodaja/proizvod/{id}' , 'LibroController@prikazjednogvele')->middleware("vratifizicko");
-Route::get('/maloprodaja/proizvod/{id}' , 'LibroController@prikazjednogmalo');
-Route::get('/potvrdaLegalforme/{id}' , 'PotvrdaController@potvrdaforme');
-Route::get('/potvrdaFizickeforme/{id}' , 'PotvrdaController@potvrdaformefiz');
+
+	Route::get('/prikazproizvoda/veleprodaja/{id}-{slug}' , 'LibroController@prikazveleprodaja')->middleware("vratifizicko");
+	Route::get('/prikazproizvoda/maloprodaja/{id}-{slug}' , 'LibroController@prikazmaloprodaja');
+
+	Route::get('/veleprodaja/proizvod/{id}-{slug}' , 'LibroController@prikazjednogvele')->middleware("vratifizicko");
+	Route::get('/maloprodaja/proizvod/{id}-{slug}' , 'LibroController@prikazjednogmalo');
+
+
+	Route::get('/potvrdaLegalforme/{id}' , 'PotvrdaController@potvrdaforme');
+
+
+
+	Route::get('/potvrdaFizickeforme/{id}' , 'PotvrdaController@potvrdaformefiz');
+
 Route::get('/verifikacijanaloga' ,'PotvrdaController@index');
-Route::get('/prikazproizvodakategorije/maloprodaja/{id}' , 'LibroController@prikazkatmaloprodaja');
-Route::get('/prikazproizvodakategorije/veleprodaja/{id}' , 'LibroController@prikazkatveleprodaja');
+
+Route::get('/prikazproizvodakategorije/maloprodaja/{id}-{slug}' , 'LibroController@prikazkatmaloprodaja');
+Route::get('/prikazproizvodakategorije/veleprodaja/{id}-{slug}' , 'LibroController@prikazkatveleprodaja');
+
 Route::get('/pretragamaloprodaje' , 'LibroController@pretragamaloprodaje');
 Route::get('/pretragaveleprodaje' , 'LibroController@pretragaveleprodaje');
 Route::get('/kontakt' , 'LibroController@kontakt');
 Route::post('/slanjeporuke' , 'LibroController@slanjeporuke');
+Route::get('/dodavanjekataloga' , 'AdminController@katalozi');
+Route::post('/dodajkatalog' , 'AdminController@dodajkatalog');
+Route::delete('/brisanjekataloga/{id}' , 'AdminController@brisanjekataloga');
+Route::get('/preuzimanjekataloga/{id}' , 'LibroController@preuzimanjekataloga');
+Route::post('/ponovnoslanjekodafiz' , 'PotvrdaController@ponovnoslanjekodafiz');
+Route::post('/ponovnoslanjekodalegal' , 'PotvrdaController@ponovnoslanjekodalegal');

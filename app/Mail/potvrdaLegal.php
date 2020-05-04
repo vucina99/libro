@@ -29,6 +29,6 @@ class potvrdaLegal extends Mailable
      */
     public function build()
     {
-       return $this->subject("LIBRO VERIFIKACIJA")->view('potvrdaLegal');
+       return $this->subject("LIBRO SHOP VERIFIKACIJA")->view('potvrdaLegal');
     }
 }

@@ -1,5 +1,17 @@
 @extends("content")
+@section("seo")
+	<title>Libro Shop NS - Kontakt</title>
+	<meta name="keywords" content="Kontakt Libro Shop NS" />
 
+	<meta name="description" content="Za sva pitanja ili nedoumice mozete se obratiti preko kontakt forme i dobicete odgovor u narednih nekoliko sati. Ili pozvati na broj +381616523408" />
+
+	<meta property="og:title" content="Libro Shop NS - Kontakt" />
+	
+	<meta property="og:keywords" content="Kontakt Libro Shop NS" />
+
+	<meta property="og:description" content="Za sva pitanja ili nedoumice mozete se obratiti preko kontakt forme i dobicete odgovor u narednih nekoliko sati. Ili pozvati na broj +381616523408" />
+	
+@endsection
 @section("content")
 <header></header>
 <main class="kockice1">
@@ -10,7 +22,7 @@
 				<div class="border-bottom border-light text-center">
 					<h5 class="novih5 ">Kontakt <i class="far fa-envelope"></i> </h5>
 				</div><br>
-				<form action="/slanjeporuke" method="POST" >
+				<form action="/slanjeporuke" method="POST" onsubmit="return potvrda();">
 					@csrf
 					@if ($errors->any())
 					<div class="alert alert-danger">
@@ -32,21 +44,21 @@
                 </div>
 
             @endif
-            <div id="sve"></div>
+            <div id="sve" class="text-center font-weight-bold"></div>
 					<div class="form-group">
 						<label for="name">Vaše ime : </label>
 						<input type="text" class="form-control" name="name" id="name" placeholder="Vaše ime">
-						<span id="names" class="greska"></span>
+						<span id="names" class="greska text-center text-light"></span>
 					</div>
 					<div class="form-group">
 						<label for="email">Vaš e-mail : </label>
 						<input type="email" class="form-control" id="email" name="email"  placeholder="Vaš e-mail">
-						<span id="emails" class="greska"></span>
+						<span id="emails" class="greska text-center text-light"></span>
 					</div>
 					<div class="form-group">
 						<label for="question">Vaše pitanje : </label>
 						<textarea name="question" id="question" cols="20" class="form-control" rows="7" placeholder="Vaše pitanje"></textarea>
-						<span id="questions" class="greska"></span>
+						<span id="questions" class="greska text-center text-light"></span>
 					</div>
 					
 					<button type="submit" class="btn btn-outline-light crvenp">Pošalji <i class="fas fa-paper-plane"></i> </button>
@@ -60,21 +72,21 @@
 
 @endsection
 
-<!-- <script>
-	    function potvrdi(){
-
+<script>
+	    function potvrda(){
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
         var question = document.getElementById("question").value;
         var regname = /^[A-z]{2,100}$/;
         var regemail =   /^[a-z]+[\.\-\_\!a-z\d]*\@[a-z]{2,10}(\.[a-z]{2,3}){1,2}$/ ;
-        var regquestion = /^[A-z\d\-\_\.\:]{2,150}$/;
+        var regquestion = /^[A-z\d\-\_\.\:]{2,1500}$/;
 
 
-        if(name == "" || email == "" || question = ""){
+        if(name == "" || email == "" || question == ""){
             document.getElementById("sve").innerHTML = "MORATE POPUNITI SVA POLJA *";
             return false;
-        }else{
+            }
+        else{
             document.getElementById("sve").innerHTML = "";
             if(!regname.test(name)){
                 document.getElementById("names").innerHTML = "MOLIMO VAS DA ISPRAVNO UNESETE VAŠE IME";
@@ -87,7 +99,7 @@
                 }else if(regemail.test(email)){
                  document.getElementById("emails").innerHTML = "";
                  if(!regquestion.test(question)){
-                document.getElementById("questions").innerHTML = "MOLIMO VAS DA ISPRAVNO UNESETE VAŠE PITANJE";
+                document.getElementById("questions").innerHTML = "MOLIMO VAS DA ISPRAVNO UNESETE VAŠE PITANJE , NAJVIŠE 1500 KARAKTERA";
                 return false;
                 }else if(regquestion.test(question)){
                  document.getElementById("questions").innerHTML = "";
@@ -99,4 +111,4 @@
 
 
 }
-</script> -->
+</script>

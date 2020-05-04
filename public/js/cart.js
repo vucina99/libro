@@ -265,7 +265,7 @@ function generateTable(proizvodi) {
         <div class="container-fluid">
         <div class="row ">
         <div class="col-4 pt-3 border-left border-right d-flex align-items-center justify-content-center">
-        <a href="maloprodaja/proizvod/${p.id}" class="text-decoration-none"> <p>${p.product.naziv} <br/>(${p.boja},${vrstas(p.vrsta)}) </p></a>
+        <a href="maloprodaja/proizvod/${p.id}-${pretvranjetexta(p.product.naziv)}" class="text-decoration-none"> <p>${p.product.naziv} <br/>(${p.boja},${vrstas(p.vrsta)}) </p></a>
         </div>
         <div class="col-4 border-left border-right d-flex align-items-center justify-content-center text-dark ">
         <input type="number"  min="1" max="1000"  value="${p.quantity}" data-id="${p.indetifikator}" class="text-center form-control radi">
@@ -290,7 +290,11 @@ function generateTable(proizvodi) {
 
 
 
-
+function pretvranjetexta(text){
+    let radi = text.split(" ");
+    let moze = radi.join("-")
+    return moze;
+}
 
 
 
@@ -360,7 +364,7 @@ function trecatabla(proizvodi) {
         <div class="container-fluid">
         <div class="row ">
         <div class="col-4 pt-3 border-left border-right d-flex align-items-center justify-content-center">
-        <a href="veleprodaja/proizvod/${p.id}" class="text-decoration-none"> <p>${p.product.naziv} <br/>(${p.boja},${vrstas(p.vrsta)}) </p></a>
+        <a href="veleprodaja/proizvod/${p.id}-${pretvranjetexta(p.product.naziv)}" class="text-decoration-none"> <p>${p.product.naziv} <br/>(${p.boja},${vrstas(p.vrsta)}) </p></a>
         </div>
         <div class="col-4 border-left border-right d-flex align-items-center justify-content-center text-dark ">
         <input type="number"  min="1" max="1000"  value="${p.quantity}" data-id="${p.indetifikator}" class="text-center form-control radi">
@@ -402,7 +406,7 @@ function drugatabla(proizvodi) {
         <div class="container-fluid">
         <div class="row ">
         <div class="col-4 pt-3 border-left border-right d-flex align-items-center justify-content-center">
-        <a href="veleprodaja/proizvod/${p.id}" class="text-decoration-none"> <p>${p.product.naziv} <br/>(${p.boja},${vrstas(p.vrsta)}) </p></a>
+        <a href="veleprodaja/proizvod/${p.id}-${pretvranjetexta(p.product.naziv)}" class="text-decoration-none"> <p>${p.product.naziv} <br/>(${p.boja},${vrstas(p.vrsta)}) </p></a>
         </div>
         <div class="col-4 border-left border-right d-flex align-items-center justify-content-center text-dark ">
         <input type="number"  min="1" max="1000"  value="${p.quantity}" data-id="${p.indetifikator}" class="text-center form-control radi">

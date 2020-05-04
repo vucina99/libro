@@ -1,5 +1,17 @@
 @extends("content")
+@section("seo")
+	<title>Libro Shop NS - Snizeni Poizvodi u Maloprodaji</title>
+	<meta name="keywords" content=" Snizen kancelarijski i skolski pribor u Maloprodaji" />
 
+	<meta name="description" content="Na sajtu Libro shop NS snizeni proizvodi maloprodaje po najboljim cenama." />
+
+	<meta property="og:title" content="Libro Shop NS - Snizeni Poizvodi u Maloprodaji" />
+	
+	<meta property="og:keywords" content="Snizen kancelarijski i skolski pribor u Maloprodaji" />
+
+	<meta property="og:description" content="Na sajtu Libro shop NS snizeni proizvodi maloprodaje po najboljim cenama." />
+	
+@endsection
 @section("content")
 <header>
 	<div class="container">
@@ -16,9 +28,9 @@
 									{{$kategorija->naziv}}
 								</button>
 								<div class="dropdown-menu dropdown-menu-center w-200">
-									<a class="dropdown-item pr-4" href="/prikazproizvodakategorije/maloprodaja/{{$kategorija->id}}">SVI PROIZVODI KATEGORIJE</a>
+									<a class="dropdown-item pr-4" href="{{$kategorija->pathmal()}}">SVI PROIZVODI KATEGORIJE</a>
 									@foreach($kategorija->podkategorijes as $podkategorija)
-									<a class="dropdown-item pr-4" href="/prikazproizvoda/maloprodaja/{{$podkategorija->id}}">{{$podkategorija->naziv}}</a>
+									<a class="dropdown-item pr-4" href="{{$podkategorija->pathmal()}}">{{$podkategorija->naziv}}</a>
 
 									@endforeach
 								</div>
@@ -26,7 +38,7 @@
 							<br>
 						</ul>
 					</div>
-				</div>
+				</div> 
 				<span  id="dodatni" class="text-dark"  >&#9776; PROIZVODI</span>
 			</div>
 			<div class="col-lg-8 col-md-12 col-sm-12 spustaj1"> 

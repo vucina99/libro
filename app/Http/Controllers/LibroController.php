@@ -9,83 +9,99 @@ use App\Mail\Narudzbina;
 use App\Mail\NarudzbinaVele;
 use App\Proizvodimalo;
 use App\Proizvodivel;
+use App\Katalog;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Session;
+use Illuminate\Support\Facades\Storage;
 class LibroController extends Controller
 {
     public function __construct(){
         $this->middleware("verifikacija");
         
     }
+    public function ponovi()
+    {
+        $katalozi = Katalog::all();
+        return view("content" , compact("katalozi"));
+    }
     public function index()
     {
      return view("index");
  }
  public function potvrda(){
-    return view("potvrda");
+     $katalozi = Katalog::all();
+    return view("potvrda", compact("katalozi"));
 }
 public function prikaz()
-{
-   return view("asortiman");
+{   $katalozi = Katalog::all();
+   return view("asortiman", compact("katalozi"));
 }
 
 function json(){
     return  ProizvodimaloResource::collection(Proizvodimalo::all());
 }
 function kontakt(){
-    return view("contant");
+     $katalozi = Katalog::all();
+    return view("contant", compact("katalozi"));
 }
-function dalje(){
-    return true;
-}
+
 function jsons(){
     return  ProizvodivelResource::collection(Proizvodivel::all());
 }
 public function snizenjemalo()
 {
+     $katalozi = Katalog::all();
     $kategorijemalo = Kategorije::all();
     $proizvodi = Proizvodimalo::whereNotNull('cena_jedan_sniz')->get();
-    return view("prvastranamaloprodaja",compact('kategorijemalo' , 'proizvodi'));
+    return view("prvastranamaloprodaja",compact('kategorijemalo' , 'proizvodi','katalozi'));
 }
 public function snizenjevel()
 {
+     $katalozi = Katalog::all();
     $kategorijevel = Kategorije::all();
     $proizvodi = Proizvodivel::whereNotNull('cena_jedan_sniz')->get();
-    return view("prvastranaveleprodaja",compact('kategorijevel', 'proizvodi'));
+    return view("prvastranaveleprodaja",compact('kategorijevel', 'proizvodi','katalozi'));
 }
 public function korpa()
 {
- return view("cart");
+     $katalozi = Katalog::all();
+ return view("cart", compact("katalozi"));
 }
-public function prikazveleprodaja($id){
+public function prikazveleprodaja($id,$slug){
+     $katalozi = Katalog::all();
     $proizvodi = Proizvodivel::where('podkategorija_id' , $id)->latest()->paginate(12);
     $kategorijevel = Kategorije::all();
-    return view("asortimanvel" , compact("proizvodi","kategorijevel"));
+    return view("asortimanvel" , compact("proizvodi","kategorijevel","katalozi"));
 }
 public function prikazmaloprodaja($id){
+     $katalozi = Katalog::all();
     $proizvodi = Proizvodimalo::where('podkategorija_id' , $id)->latest()->paginate(12);
     $kategorijemale = Kategorije::all();
-    return view("asortimanmalo" , compact("proizvodi","kategorijemale"));
+    return view("asortimanmalo" , compact("proizvodi","kategorijemale","katalozi"));
 }
-public function prikazkatmaloprodaja($id){
+public function prikazkatmaloprodaja($id,$slug){
+     $katalozi = Katalog::all();
     $proizvodi = Proizvodimalo::where('kategorija_id' , $id)->latest()->paginate(12);
     $kategorijemale = Kategorije::all();
-    return view("asortimankategorijemalo" , compact("proizvodi","kategorijemale"));
+    return view("asortimankategorijemalo" , compact("proizvodi","kategorijemale","katalozi"));
 }
-public function prikazkatveleprodaja($id){
+public function prikazkatveleprodaja($id,$slug){
+     $katalozi = Katalog::all();
     $proizvodi = Proizvodivel::where('kategorija_id' , $id)->latest()->paginate(12);
     $kategorijevel = Kategorije::all();
-    return view("asortimankategorijevel" , compact("proizvodi","kategorijevel"));
+    return view("asortimankategorijevel" , compact("proizvodi","kategorijevel","katalozi"));
 }
-public function prikazjednogvele($id){
+public function prikazjednogvele($id,$slug){
+     $katalozi = Katalog::all();
     $proizvod = Proizvodivel::find($id);
-    return view("proizvodveleprodaja" , compact("proizvod"));
+    return view("proizvodveleprodaja" , compact("proizvod","katalozi"));
 }
-public function prikazjednogmalo($id){
+public function prikazjednogmalo($id,$slug){
+     $katalozi = Katalog::all();
     $proizvod = Proizvodimalo::find($id);
-    return view("proizvodmaloprodaja" , compact("proizvod"));
+    return view("proizvodmaloprodaja" , compact("proizvod","katalozi"));
 }
 public function naruci(Request $request){
     if(Auth::user()){
@@ -140,9 +156,10 @@ public function naruci(Request $request){
 }
 
 public function pretragamaloprodaje(Request $request){
+     $katalozi = Katalog::all();
     $proizvodi = Proizvodimalo::where('naziv' , 'like' , '%'.$request->pretraga.'%')->paginate(12);
     $kategorijemale = Kategorije::all();
-    return view("asortimanmalo" , compact("proizvodi","kategorijemale"));  
+    return view("asortimanmalo" , compact("proizvodi","kategorijemale","katalozi"));  
 }
 
 
@@ -150,16 +167,17 @@ public function pretragamaloprodaje(Request $request){
 
 
 public function pretragaveleprodaje(Request $request){
+     $katalozi = Katalog::all();
     $proizvodi = Proizvodivel::where('naziv' , 'like' , '%'.$request->pretraga.'%')->paginate(12);
     $kategorijevel = Kategorije::all();
-    return view("asortimanvel" , compact("proizvodi","kategorijevel"));
+    return view("asortimanvel" , compact("proizvodi","kategorijevel","katalozi"));
 }
 
 public function slanjeporuke(Request $request){
     $this->validate($request,[
         'name' => 'required|max:40|min:2',
         'email' => 'required|email|max:255',
-        'question' => 'required|max:500|min:2',
+        'question' => 'required|max:1500|min:2',
     ]);
     $sve = [
         'name' => $request->name,
@@ -170,7 +188,13 @@ public function slanjeporuke(Request $request){
 
     return back()->with("kontak" , "Uspešno ste poslali poruku");
 }
+public function preuzimanjekataloga($id)
+{
+    $katalogs = Katalog::find($id);
+    $proizvod = $katalogs->katalog;
 
+    return Storage::download('public/katalozi/'. $proizvod);
+}
 
 
 

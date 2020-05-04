@@ -1,5 +1,17 @@
 @extends("content")
+@section("seo")
+	<title>Libro Shop NS - Maloprodaja | {{$proizvod->naziv}}</title>
+	<meta name="keywords" content="{{$proizvod->naziv}},{{$proizvod->kategorije->naziv}},{{$proizvod->podkategorije->naziv}} ,maloprodaja " />
 
+	<meta name="description" content="" />
+
+	<meta property="og:title" content="Libro Shop NS - Maloprodaja | {{$proizvod->naziv}}" />
+	
+	<meta property="og:keywords" content="{{$proizvod->naziv}},{{$proizvod->kategorije->naziv}},{{$proizvod->podkategorije->naziv}} ,maloprodaja" />
+
+	<meta property="og:description" content="" />
+	
+@endsection
 @section("content")
 <header></header>
 <main class="bezkockica"> 
@@ -51,9 +63,9 @@
 			<h1> <span class=""> {{$proizvod->podkategorije->naziv}} </span> - <span class="font-italic"> {{$proizvod->naziv}} </span>  </h1> <br> 
 
 			<div class="text-center text-danger1 mrezeneke">
-				<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:8000/maloprodaja/proizvod/{{$proizvod->id}} ' , 'Facebook share'); return false;"><i class="fab fa-facebook-square"></i></a> &nbsp; 
+				<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{$proizvod->path()}} ' , 'Facebook share'); return false;"><i class="fab fa-facebook-square"></i></a> &nbsp; 
 
-				<a href="https://twitter.com/share?url=" onclick="window.open('https://twitter.com/share?url=http://127.0.0.1:8000/maloprodaja/proizvod/{{$proizvod->id}}&text=LIBRO SHOP - ' , 'Twitter share'); return false;" ><i class="fab fa-twitter"></i></a>
+				<a href="https://twitter.com/share?url=" onclick="window.open('https://twitter.com/share?url={{$proizvod->path()}}&text=LIBRO SHOP - ' , 'Twitter share'); return false;" ><i class="fab fa-twitter"></i></a>
 			</div>
 
 

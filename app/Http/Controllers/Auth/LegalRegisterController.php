@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\potvrdaLegal;
 use App\Radni;
 use Auth;
+use App\Katalog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -23,7 +24,8 @@ class LegalRegisterController extends Controller
     }
 
     public function showLoginForm(){
-    	return view("auth/legalRegister");
+        $katalozi = Katalog::all();
+    	return view("auth/legalRegister", compact("katalozi"));
     }
 
 

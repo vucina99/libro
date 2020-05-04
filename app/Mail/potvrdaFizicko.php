@@ -29,6 +29,6 @@ class potvrdaFizicko extends Mailable
      */
     public function build()
     {
-         return $this->subject("LIBRO VERIFIKACIJA")->view('potvrdaFizicko');
+         return $this->subject("LIBRO SHOP VERIFIKACIJA")->view('potvrdaFizicko');
     }
 }

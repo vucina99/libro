@@ -1,6 +1,18 @@
 @extends("content")
 
+@section("seo")
+	<title>Libro Shop NS - Kancelarisjki I Skolski Pribor</title>
+	<meta name="keywords" content="Libro Shop, Kancelarijski pribor, Skolski pribor, Veleprodaja i Maloprodaja" />
 
+	<meta name="description" content="Pogledajte siroku ponudu skolskog i kancelarijskog pribora po najboljim cenama u Veleprodaji i Maloprodaji." />
+
+	<meta property="og:title" content="Libro Shop NS - Kancelarisjki I Skolski pribor" />
+
+	<meta property="og:keywords" content="Libro Shop, Kancelarijski pribor, Skolski pribor, Veleprodaja i Maloprodaja" />
+
+	<meta property="og:description" content="Pogledajte siroku ponudu skolskog i kancelarijskog pribora po najboljim cenama u Veleprodaji i Maloprodaji." />
+	
+@endsection
 @section("content")
 
 <header>

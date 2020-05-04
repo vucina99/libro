@@ -201,7 +201,132 @@
  </div> <br><br><br>
 </main>
 
+<script type="text/javascript">
+       function provera(){
+    var name = document.getElementById("name").value;
+    var city = document.getElementById("city").value;
+    var street = document.getElementById("street").value;
+    var object = document.getElementById("object").value;
+    var phone = document.getElementById("phone").value;
+    var number = document.getElementById("number").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var repassword = document.getElementById("password-confirm").value;
+    var pib = document.getElementById("pib").value;
+    var maticni_broj = document.getElementById("maticni_broj").value;
+    var fix = document.getElementById("fix").value;
+    var regname = /^[A-z]{2,100}$/;
+    var regcity = /^[A-z]{2,50}$/;
+    var regstreet = /^[A-z]{2,50}$/;
+    var regobject = /^[0-9]{1,3}[A-z]{0,4}$/;
+    var regphone = /^[0-9]{8,10}$/;
+    var regpib = /^[0-9]{9}$/;
+    var regmaticni_broj = /^[0-9]{8}$/;
+    var regfix = /^$|^[0-9]{4,20}$/;
+    var regnumber = /^[0-9]{2,15}$/;
+    var regemail =   /^[a-z]+[\.\-\_\!a-z\d]*\@[a-z]{2,10}(\.[a-z]{2,3}){1,2}$/ ;
+    var regquestion = /^[A-z\d\-\_\.\:]{2,150}$/;
 
+
+    if(name == "" || city == "" || street == "" || object == "" || phone == "" || number == "" || email == "" || password == "" || repassword == ""){
+        document.getElementById("svapolja").innerHTML = "Molimo Vas popunite sva polja* ";
+        return false;
+
+    }else{
+
+
+        document.getElementById("svapolja").innerHTML = "";
+
+        if(!regname.test(name)){
+            document.getElementById("names").innerHTML = "Molimo Vas ispravno unesite Vaše ime * ";
+            return false;
+        }else if(regname.test(name)){
+            document.getElementById("names").innerHTML = "";
+            if(!regpib.test(pib)){
+                document.getElementById("pibs").innerHTML = "Molimo Vas ispravno unesite PIB firme * ";
+                return false;
+            }else if(regpib.test(pib)){
+                document.getElementById("pibs").innerHTML = "";
+                if(!regmaticni_broj.test(maticni_broj)){
+                    document.getElementById("maticni_brojs").innerHTML = "Molimo Vas ispravno unesite matični broj firme * ";
+                    return false;
+                }else if(regmaticni_broj.test(maticni_broj)){
+                    document.getElementById("maticni_brojs").innerHTML = "";
+                    if(!regcity.test(city)){
+                        document.getElementById("citys").innerHTML = "Molimo Vas ispravno unesite Vaš grad * ";
+                        return false;
+                    }else if(regcity.test(city)){
+                        document.getElementById("citys").innerHTML = "";
+                        if(!regstreet.test(street)){
+                            document.getElementById("streets").innerHTML = "Molimo Vas ispravno unestie Vašu ulicu * ";
+                            return false;
+                        }else if(regstreet.test(street)){
+                            document.getElementById("streets").innerHTML = "";
+                            if(!regobject.test(object)){
+                                document.getElementById("objects").innerHTML = "Molimo Vas ispravno unestie broj stambenog objekta * ";
+                                return false;
+                            }else if(regobject.test(object)){
+                                document.getElementById("objects").innerHTML = "";
+                                if(!regphone.test(phone)){
+                                    document.getElementById("phones").innerHTML = "Molimo Vas ispravno unestie Vaš broj mobilnog *";
+                                    return false;
+                                }else if(regphone.test(phone)){
+                                    document.getElementById("phones").innerHTML = "";
+                                    if(!regfix.test(fix)){
+                                        document.getElementById("fixs").innerHTML = "Molimo Vas ispravno unestie broj fiksnog telefona *";
+                                        return false;
+                                    }else if(regfix.test(fix)){
+                                        document.getElementById("fixs").innerHTML = "";
+                                        if(!regnumber.test(number)){
+                                            document.getElementById("numbers").innerHTML = "Molimo Vas ispravno unestie Vaš broj mobilnog * ";
+                                            return false;
+                                        }else if(regnumber.test(number)){
+                                            document.getElementById("numbers").innerHTML = "";
+                                            if(!regemail.test(email)){
+                                                document.getElementById("emails").innerHTML = "Molimo Vas ispravno unestie Vaš poštanski broj * ";
+                                                return false;
+                                            }else if(regemail.test(email)){
+                                                document.getElementById("emails").innerHTML = "";
+                                                if(password.length < 8){
+                                                    document.getElementById("passwords").innerHTML = "Vaša lozinka mora imati više od 8 karaktera *";
+                                                    return false;
+                                                }else if(password.length >= 8){
+                                                 document.getElementById("passwords").innerHTML = "";
+
+                                                 if(repassword.length < 8){
+                                                    document.getElementById("repasswords").innerHTML = "Vaša lozinka mora imati više od 8 karaktera *";
+                                                    return false;
+                                                }else if(repassword.length >= 8){
+                                                   document.getElementById("repasswords").innerHTML = "";
+
+                                                   if(password != repassword){
+                                                    document.getElementById("repasswords").innerHTML = "Niste dobro potvrdili lozinku *";
+                                                    return false;
+                                                }else if (password == repassword){
+                                                    document.getElementById("repasswords").innerHTML = "";
+                                                }
+
+
+                                            }
+
+
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }    
+                }   
+            }
+        }
+    }
+}
+
+}
+
+}
+</script>
 
 @endsection
 

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Proizvodivel extends Model
 {
@@ -10,6 +11,9 @@ class Proizvodivel extends Model
         'naziv','sifra','opis','slika','vrsta_id','cena_jedan','cena_paket','cena_jedan_sniz','cena_paket_sniz','kategorija_id','podkategorija_id'
     ];
 
+    public function path(){
+        return url("/veleprodaja/proizvod/{$this->id}-" . Str::slug($this->naziv));
+    }
     public function kategorije()
     {
         return $this->belongsTo('App\Kategorije','kategorija_id');

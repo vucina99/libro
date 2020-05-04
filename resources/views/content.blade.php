@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
 	<meta charset="UTF-8">
-	<title>Libro</title>
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
+
+	@yield("seo")
+		
+	<meta property="og:type" content="shop" />
+	<meta property="og:url" content="https://libroshopns.com/" />
+	<meta property="og:image" content="../../img/logo.jpg" />
+	<meta property="og:type" content="Website" />
+	<meta name="language" content="Serbian, Srpski">
+	<meta name="copyright" content="Copyright © 2020 Libro Shop. All Rights Reserved. Credits: Vuk Zdravković">
 	<link rel="shortcut icon" href="../../img/logo.ico" />
+
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -56,11 +64,36 @@
 					@endif
 					@endif
 					@if(Request::path() != "/")
-					<li class="nav-item active linija">
-						<a class="nav-link" href="#"> VELEPRODAJA(KATALOG)  <i class="fas fa-download"></i>  </a>
+					<li class="nav-item active linija pr-2 ">
+						<div class="dropdown">
+							<button class="btn p-0 pt-2 pb-2  btn-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								VELEPRODAJA(KATALOZI)
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+								@foreach($katalozi as $kat)
+								@if($kat->vrsta == 1)
+								<a class="dropdown-item pr-4" href="/preuzimanjekataloga/{{$kat->id}}">{{$kat->naziv}} <i class="fas fa-download"></i></a>
+								@endif
+								@endforeach
+								
+							</div>
+						</div>
+						<!-- <a class="nav-link" href="#"> VELEPRODAJA(KATALOG)  <i class="fas fa-download"></i>  </a> -->
 					</li>
-					<li class="nav-item active linija">
-						<a class="nav-link" href="#"> MALOPRODAJA(KATALOG) <i class="fas fa-download"></i>  </a>
+					<li class="nav-item active linija pr-2 pomeri">
+						<div class="dropdown">
+							<button class="btn btn-dark p-0 pt-2 pb-2 dropdown-toggle text-left" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							MALOPRODAJA(KATALOZI)
+							</button>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+								@foreach($katalozi as $kat)
+								@if($kat->vrsta == 2)
+								<a class="dropdown-item pr-4" href="/preuzimanjekataloga/{{$kat->id}}">{{$kat->naziv}} <i class="fas fa-download"></i></a>
+								@endif
+								@endforeach
+							</div>
+						</div>
+						<!-- <a class="nav-link" href="#"> MALOPRODAJA(KATALOG) <i class="fas fa-download"></i>  </a> -->
 					</li>
 					<li class="nav-item active unutar ">
 						
@@ -102,7 +135,7 @@
 									
 									localStorage.setItem("products", JSON.stringify(filtered));
 								}
-								console.log(product);
+								
 							});
 
 						</script>
@@ -116,7 +149,7 @@
 							<a class="dropdown-item" href="{{ route('logout') }}"
 							onclick="event.preventDefault();
 							document.getElementById('logout-form').submit();">
-							{{ __('Logout') }}
+							{{ __('ODJAVI SE') }}
 						</a>
 
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -142,11 +175,10 @@
 			<div class="col-lg-3 col-md-6 col-sm-12 text-center">
 				<img src="../../img/logo.jpg" alt="logo" class="img-fluid">
 				<ul>
-					<li><a href="" class="text-decoration-none">PRAVNA LICA <i class="fas fa-sign-in-alt"></i> </a></li>
-					<li><a href="" class="text-decoration-none">FIZIČKA LICA <i class="fas fa-sign-in-alt"></i> </a></li>
-					<li><a href="" class="text-decoration-none"> MALOPRODAJA </a> </li>
-					<li><a href="" class="text-decoration-none"> VELEPRODAJA</a></li>
-					<li><a href="" class="text-decoration-none"> KONTAKT </a></li>
+					<li><a href="/legal/register" class="text-decoration-none">PRAVNA LICA <i class="fas fa-sign-in-alt"></i> </a></li>
+					<li><a href="/register" class="text-decoration-none">FIZIČKA LICA <i class="fas fa-sign-in-alt"></i> </a></li>
+					<li><a href="/kontakt" class="text-decoration-none"> KONTAKT </a></li>
+					<li><a href="/korpa" class="text-decoration-none unutar">  </a> </li>
 				</ul>
 			</div>
 			<div class="col-lg-3 col-md-6 col-sm-12 text-center">
@@ -189,7 +221,7 @@
 		<div class="row">
 			<div class="col-lg-12 text-center spusti">
 				<hr class="bg-light">
-				<h4 class="text-light"> Copyright © 2020 Libro Vuk Zdravkovic. All Rights Reserved. Credits: Vuk Zdravković <i class="fas fa-sitemap"></i> </h4>
+				<h4 class="text-light"> Copyright © 2020 Libro Shop. All Rights Reserved. Credits: Vuk Zdravković <i class="fas fa-sitemap"></i> </h4>
 			</div>
 		</div>
 	</div>

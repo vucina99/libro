@@ -1,5 +1,9 @@
 @extends("content")
-
+@section("seo")
+	<title>Libro Shop NS - Asortiman Maloprodaje</title>
+	<meta name="robots" content="noindex">
+	
+@endsection
 @section("content")
 <header>
 	<div class="container">
@@ -16,9 +20,9 @@
 									{{$kategorija->naziv}}
 								</button>
 								<div class="dropdown-menu dropdown-menu-center w-200">
-									<a class="dropdown-item pr-4" href="/prikazproizvodakategorije/maloprodaja/{{$kategorija->id}}">SVI PROIZVODI KATEGORIJE</a>
+									<a class="dropdown-item pr-4" href="{{$kategorija->pathmal()}}">SVI PROIZVODI KATEGORIJE</a>
 									@foreach($kategorija->podkategorijes as $podkategorija)
-									<a class="dropdown-item pr-4" href="/prikazproizvoda/maloprodaja/{{$podkategorija->id}}">{{$podkategorija->naziv}}</a>
+									<a class="dropdown-item pr-4" href="{{$podkategorija->pathmal()}}">{{$podkategorija->naziv}}</a>
 
 									@endforeach
 								</div>
@@ -26,9 +30,7 @@
 							<br>
 						</ul>
 					</div>
-				</div>
-
-
+				</div> 
 				<span  id="dodatni" class="text-dark"  >&#9776; PROIZVODI</span>
 			</div>
 			<div class="col-lg-8 col-md-12 col-sm-12 spustaj1"> 
@@ -55,7 +57,7 @@
 					<div class="container-fluid">
 						<div class="row border-siva1">
 							<div class="col-3 text-center">
-								<a href="/maloprodaja/proizvod/{{$proizvod->id}}" >
+								<a href="{{$proizvod->path()}}" >
 									<button class="btn btn-outline-danger btn-sm"><i class="fas fa-align-left "></i></button>
 
 								</a>
@@ -107,7 +109,7 @@
 							</div>
 						</div> 
 					</div>
-					<a href="/maloprodaja/proizvod/{{$proizvod->id}}" class="text-decoration-none">
+					<a href="{{$proizvod->path()}}" class="text-decoration-none">
 						<img class="card-img-top" src="{{asset('/storage/images/'. $proizvod->slika )}}" alt="Card image cap img-fluid">
 						<div class="card-body">
 							<h5 class="card-title text-danger1">{{$proizvod->naziv}}</h5>

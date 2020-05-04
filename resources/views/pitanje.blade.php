@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+		<meta name="robots" content="noindex">
+
 	<meta charset="UTF-8">
 	<title></title>
 </head>
 <body>
-	Ime : {{$sve['name'] }}<br>
-	Email : {{$sve['email']}} <br> <br>
+	<h2 style="font-size:17px;"> <span style="color:#cc0000;text-transform: uppercase;">IME :  </span> {{$sve['name'] }}</h2> 
+	<h2 style="font-size:17px; "> <span style="color:#cc0000; text-transform: uppercase;">E-MAIL :  </span> {{$sve['email']}}</h2>
+	<div style="width:100%; word-break: break-all;">
+		<h2 style="font-size:17px;"> <span style="color:#cc0000; text-transform: uppercase;">PITANJE :  </span> {{$sve['question']}}</h2>
+	</div>
+	  
 
-	Pitanje : {{$sve['question']}} <br>
+
+	
 </body>
 </body>
 </html>

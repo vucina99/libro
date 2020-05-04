@@ -1,5 +1,10 @@
 @extends("content")
+@section("seo")
+	<title>Libro Shop NS - Korpa</title>
+	<meta name="robots" content="noindex">
 
+	
+@endsection
 @section("content")
 <header></header> 
 <main class=""><br><br><br><br><br><br>

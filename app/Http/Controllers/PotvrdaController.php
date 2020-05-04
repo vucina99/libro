@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Radni;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\potvrdaFizicko;
+use App\Mail\potvrdaLegal;
 
 class PotvrdaController extends Controller
 {
@@ -37,4 +40,32 @@ class PotvrdaController extends Controller
              return redirect("/login");
         }
     }
+
+    public function ponovnoslanjekodafiz(Request $request)
+    {
+       $podaci = [
+            'verifikacija' => $request->verifikacija ,
+            'name' =>  $request->name,
+
+            
+        ];
+        $novi = Mail::to($request->email)->send(new potvrdaFizicko($podaci));
+        return back()->with("uspeh" , "KOD ZA VERIFIKACIJU JE USPEŠNO POSLAT");
+    }
+
+    public function ponovnoslanjekodalegal(Request $request)
+    {
+       $podaci = [
+            'verifikacija' => $request->verifikacija ,
+            'name' =>  $request->name,
+
+            
+        ];
+        Mail::to($request->email)->send(new potvrdaLegal($podaci));
+        return back()->with("uspeh" , "KOD ZA VERIFIKACIJU JE USPEŠNO POSLAT");
+    }
+
+
+
+
 }

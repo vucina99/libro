@@ -1,5 +1,9 @@
 @extends("content")
+@section("seo")
+        <meta name="robots" content="noindex">
 
+    
+@endsection
 @section("content")
 
 <main>

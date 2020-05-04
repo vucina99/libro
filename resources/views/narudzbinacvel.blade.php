@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>NARUDZBINA</title>
+		<meta name="robots" content="noindex">
+
 
 </head>
 <body>

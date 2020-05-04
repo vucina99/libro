@@ -19,6 +19,10 @@ main{
 .carousel-indicators{
 	z-index:1;
 }
+.linija .dropdown-item:hover{
+	background-color: #cc0000;
+	color: #fff;
+}
 .cenovnikov{
 	font-size:8px;
 }
@@ -359,6 +363,7 @@ footer span{
 	.drugi h2{
 		font-size: 17px;
 	}
+
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -512,6 +517,9 @@ footer span{
 	.drugi h2{
 		font-size: 22px;
 	}
+			.pomeri{
+		padding-left: 1vh;
+	}
 }
 
 @media (min-width: 1200px) { 
@@ -556,6 +564,9 @@ footer span{
 	}
 	.drugi h2{
 		font-size: 24px;
+	}
+		.pomeri{
+		padding-left: 1vh;
 	}
 }
 

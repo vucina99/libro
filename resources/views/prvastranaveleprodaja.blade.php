@@ -1,5 +1,17 @@
 @extends("content")
+@section("seo")
+	<title>Libro Shop NS - Snizeni Poizvodi u Veleprodaji</title>
+	<meta name="keywords" content=" Snizen kancelarijski i skolski pribor u Veleprodaji" />
 
+	<meta name="description" content="Na sajtu Libro shop NS snizeni proizvodi veleprodaje po najboljim cenama." />
+
+	<meta property="og:title" content="Libro Shop NS - Snizeni Poizvodi u Veleprodaji" />
+	
+	<meta property="og:keywords" content="Snizen kancelarijski i skolski pribor u Veleprodaji" />
+
+	<meta property="og:description" content="Na sajtu Libro shop NS snizeni proizvodi veleprodaje po najboljim cenama." />
+	
+@endsection
 @section("content")
 <header>
 	<div class="container">
@@ -16,9 +28,9 @@
 									{{$kategorija->naziv}}
 								</button>
 								<div class="dropdown-menu dropdown-menu-center w-200">
-									<a class="dropdown-item pr-4" href="/prikazproizvodakategorije/veleprodaja/{{$kategorija->id}}">SVI PROIZVODI KATEGORIJE</a>
+									<a class="dropdown-item pr-4" href="{{$kategorija->pathvel()}}">SVI PROIZVODI KATEGORIJE</a>
 									@foreach($kategorija->podkategorijes as $podkategorija)
-									<a class="dropdown-item pr-4" href="/prikazproizvoda/veleprodaja/{{$podkategorija->id}}">{{$podkategorija->naziv}}</a>
+									<a class="dropdown-item pr-4" href="{{$podkategorija->pathvel()}}">{{$podkategorija->naziv}}</a>
 									
 									@endforeach
 								</div>

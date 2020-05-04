@@ -29,6 +29,6 @@ class NarudzbinaVele extends Mailable
      */
     public function build()
     {
-        return $this->subject('LIBRO SHOP')->view('narudzbinacvel');
+        return $this->subject('LIBRO SHOP NARUDZBINA')->view('narudzbinacvel');
     }
 }

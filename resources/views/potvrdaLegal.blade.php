@@ -3,21 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<meta name="robots" content="noindex">
+
 </head>
 <body>
 
 
-	<div class="text-center text-dark">
-		<h2>Dobro došli {{$podaci['name']}}</h2> <br><br>
-		<h5>Molimo Vas da potvrdite klikom na dugme validnost Vaše e-mail adrese i time aktivirate profil.</h5><br>
-		<a href="http://127.0.0.1:8000/potvrdaLegalforme/{{$podaci['verifikacija']}}"><button class="btn btn-dark">POTVRDA VERIFIKACIJE</button></a> <br><br><br>
-		<h5>Unapred zahvalan, <br> Vaš Libro <br><br></h5>
-		<img src="img/logo.jpg" alt="">
+
+	<div align="center"><br><br>
+		<h2 style="font-size:19px; text-transform: uppercase;">Dobro došli <span style="color:#cc0000;">{{$podaci['name']}}</span></h2> 
+		<h5 style="font-size:19px; text-transform: uppercase;">Molimo Vas da potvrdite klikom na dugme validnost Vaše e-mail adrese i time aktivirate profil.</h5>
+		<a href="http://127.0.0.1:8000/potvrdaLegalforme/{{$podaci['verifikacija']}}"><button class="btn btn-dark " style="font-size:17px; text-transform: uppercase; background-color:#333333; color:#fff; padding:10px 22px; border:1px solid #cc0000;">POTVRDA VERIFIKACIJE</button></a> <br><br>
+		<h5 style=" font-size:19px; text-transform: uppercase;">Unapred zahvalan, <br><span style="color:#cc0000;"> Vaš Libro </span><br><br></h5>
 		<div>
 			
 		</div>
 	</div>
+
+
+
+
+
+
+
 
 </body>
 </html>
